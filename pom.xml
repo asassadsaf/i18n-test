@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fkp</groupId>
-    <artifactId>ControllerAdvice_Interceptor_i18n_Test</artifactId>
+    <artifactId>i18n_test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ControllerAdvice_Interceptor_i18n_Test</name>
-    <description>ControllerAdvice_Interceptor_i18n_Test</description>
+    <name>i18n_test</name>
+    <description>i18n_test</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -9,10 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class I18nUtils {
 
-    @Autowired
-    private MessageSource messageSource;
+    private static MessageSource messageSource;
 
-    public String getMessage(String key){
+    @Autowired
+    private void setMessageSource(MessageSource messageSource){
+        I18nUtils.messageSource = messageSource;
+    }
+
+    public static String getMessage(String key){
         String langMessage = key;
         try {
          langMessage = messageSource.getMessage(key, new Object[]{}, LocaleContextHolder.getLocale());
