@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+
 @RestController
 @RequestMapping(value = "/i18n")
 public class I18nController {
@@ -18,7 +21,13 @@ public class I18nController {
         return RestResponse.success(user);
     }
 
+    @RequestMapping(value = "valid", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse<User> valid(@Valid User user){
+        return RestResponse.success(user);
+    }
+
     static class User{
+        @NotBlank(message = "{user.name.notBlank}")
         private String name;
 
         public String getName() {
