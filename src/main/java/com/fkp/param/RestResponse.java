@@ -18,16 +18,29 @@ public class RestResponse<T> implements Serializable {
     public RestResponse() {
     }
 
+    public RestResponse(String code, String status) {
+        this.code = code;
+        this.status = status;
+        this.msg = I18nUtils.getMessage(code);
+    }
+
     public RestResponse(String code, String status, String msg) {
         this.code = code;
         this.status = status;
-        this.msg = I18nUtils.getMessage(msg);
+        this.msg = msg;
+    }
+
+    public RestResponse(String code, String status, T data) {
+        this.code = code;
+        this.status = status;
+        this.msg = I18nUtils.getMessage(code);
+        this.data = data;
     }
 
     public RestResponse(String code, String status, String msg, T data) {
         this.code = code;
         this.status = status;
-        this.msg = I18nUtils.getMessage(msg);
+        this.msg = msg;
         this.data = data;
     }
 
@@ -43,7 +56,7 @@ public class RestResponse<T> implements Serializable {
         RestResponse<T> res = new RestResponse<>();
         res.setCode(CODE_SUCCESS);
         res.setStatus(STATUS_SUCCESS);
-        res.setMsg(I18nUtils.getMessage(msg));
+        res.setMsg(msg);
         return res;
     }
 
@@ -60,7 +73,7 @@ public class RestResponse<T> implements Serializable {
         RestResponse<T> res = new RestResponse<>();
         res.setCode(CODE_SUCCESS);
         res.setStatus(STATUS_SUCCESS);
-        res.setMsg(I18nUtils.getMessage(msg));
+        res.setMsg(msg);
         res.setData(data);
         return res;
     }
@@ -77,7 +90,7 @@ public class RestResponse<T> implements Serializable {
         RestResponse<T> res = new RestResponse<>();
         res.setCode(code);
         res.setStatus(STATUS_FAIL);
-        res.setMsg(I18nUtils.getMessage(msg));
+        res.setMsg(msg);
         return res;
     }
 
@@ -94,7 +107,7 @@ public class RestResponse<T> implements Serializable {
         RestResponse<T> res = new RestResponse<>();
         res.setCode(code);
         res.setStatus(STATUS_FAIL);
-        res.setMsg(I18nUtils.getMessage(msg));
+        res.setMsg(msg);
         res.setData(data);
         return res;
     }

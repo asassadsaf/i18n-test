@@ -2,3 +2,8 @@ spring:
   messages:
     #指定国际化资源文件资源组
     basename: i18n/messages
+  datasource:
+    url: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: fkp123456
