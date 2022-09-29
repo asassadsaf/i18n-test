@@ -93,7 +93,10 @@ public class GlobalExceptionHandler {
     public RestResponse<?> businessError(BusinessException e){
         String errorCode = ErrorCodeEnum.BusinessException.getCode();
         String errorMessage = ErrorCodeEnum.BusinessException.getMsg();
-        RestResponse<?> res = RestResponse.fail(e.getMessage());
+        RestResponse<?> res = RestResponse.fail(e.getErrorCode());
+        if(StringUtils.isNotBlank(e.getMessage())){
+            log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}:{}:{}",e.getClass().toString(), errorCode, errorMessage, e.getMessage(), res);
+        }
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}:{}",e.getClass().toString(), errorCode, errorMessage, res);
         return res;
     }
