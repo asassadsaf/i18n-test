@@ -13,6 +13,9 @@ public enum ErrorCodeEnum {
     //连接异常
     NetworkError("999997", "Network Error"),
 
+    //业务异常
+    BusinessException("999983", "Business Exception"),
+
     //数据库连接异常
     DatabaseException("999996", "Database Error"),
 

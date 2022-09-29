@@ -1,6 +1,7 @@
 package com.fkp.handler;
 
 import com.fkp.constant.ErrorCodeEnum;
+import com.fkp.exception.BusinessException;
 import com.fkp.param.RestResponse;
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import lombok.extern.slf4j.Slf4j;
@@ -81,6 +82,20 @@ public class GlobalExceptionHandler {
             return RestResponse.fail(ErrorCodeEnum.GlobalInnerException.getCode(),ErrorCodeEnum.GlobalInnerException.getMsg() + ": " + ex.getMessage());
         }
         return RestResponse.fail(ErrorCodeEnum.ValidException.getCode(),sb.toString());
+    }
+
+    /**
+     * 业务异常
+     * @param e 异常对象
+     * @return 返回统一错误信息
+     */
+    @ExceptionHandler(BusinessException.class)
+    public RestResponse<?> businessError(BusinessException e){
+        String errorCode = ErrorCodeEnum.BusinessException.getCode();
+        String errorMessage = ErrorCodeEnum.BusinessException.getMsg();
+        RestResponse<?> res = RestResponse.fail(e.getMessage());
+        log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}:{}",e.getClass().toString(), errorCode, errorMessage, res);
+        return res;
     }
 
     /**

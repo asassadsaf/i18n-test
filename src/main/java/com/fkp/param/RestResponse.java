@@ -143,4 +143,14 @@ public class RestResponse<T> implements Serializable {
     public void setData(T data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "RestResponse{" +
+                "code='" + code + '\'' +
+                ", status='" + status + '\'' +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
