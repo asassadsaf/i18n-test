@@ -91,6 +91,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BusinessException.class)
     public RestResponse<?> businessError(BusinessException e){
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.BusinessException.getCode();
         String errorMessage = ErrorCodeEnum.BusinessException.getMsg();
         RestResponse<?> res = RestResponse.fail(e.getErrorCode());
@@ -109,6 +110,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ConnectException.class)
     public RestResponse<?> connectionError(ConnectException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.NetworkError.getCode();
         String errorMessage = ErrorCodeEnum.NetworkError.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -123,6 +125,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(CommunicationsException.class)
     public RestResponse<?> communicationsException(CommunicationsException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.DatabaseException.getCode();
         String errorMessage = ErrorCodeEnum.DatabaseException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -137,6 +140,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(CannotCreateTransactionException.class)
     public RestResponse<?> cannotCreateTransactionException(CannotCreateTransactionException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.CannotCreateTransactionException.getCode();
         String errorMessage = ErrorCodeEnum.CannotCreateTransactionException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -151,6 +155,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(TransactionSystemException.class)
     public RestResponse<?> transactionSystemException(TransactionSystemException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.TransactionSystemException.getCode();
         String errorMessage = ErrorCodeEnum.TransactionSystemException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -165,6 +170,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ClassCastException.class)
     public RestResponse<?> classCastException(ClassCastException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.ClassCastException.getCode();
         String errorMessage = ErrorCodeEnum.ClassCastException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -179,6 +185,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(NoSuchMethodException.class)
     public RestResponse<?> noSuchMethodException(NoSuchMethodException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.NoSuchMethodException.getCode();
         String errorMessage = ErrorCodeEnum.NoSuchMethodException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -193,6 +200,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(IndexOutOfBoundsException.class)
     public RestResponse<?> indexOutOfBoundsException(IndexOutOfBoundsException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.IndexOutOfBoundsException.getCode();
         String errorMessage = ErrorCodeEnum.IndexOutOfBoundsException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -207,6 +215,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(NullPointerException.class)
     public RestResponse<?> nullPointerExceptionHandler(NullPointerException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.NullPointerException.getCode();
         String errorMessage = ErrorCodeEnum.NullPointerException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -221,6 +230,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(IOException.class)
     public RestResponse<?> iOExceptionHandler(IOException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.IOException.getCode();
         String errorMessage = ErrorCodeEnum.IOException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -235,6 +245,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpMessageNotReadableException.class})
     public RestResponse<?> requestNotReadable(HttpMessageNotReadableException e) {
+        e.printStackTrace();
         String returnMsg = StringUtils.EMPTY;
         String message = e.getMessage();
         if (StringUtils.isNotBlank(message)) {
@@ -254,6 +265,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public RestResponse<?> requestMissingServletRequest(MissingServletRequestParameterException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.ParamMissing.getCode();
         String errorMessage = ErrorCodeEnum.ParamMissing.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -268,6 +280,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({TypeMismatchException.class})
     public RestResponse<?> typeMismatchException(TypeMismatchException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.TypeMismatchException.getCode();
         String errorMessage = ErrorCodeEnum.TypeMismatchException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -282,6 +295,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({NoHandlerFoundException.class})
     public RestResponse<?> request404(NoHandlerFoundException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.NoHandlerFoundException.getCode();
         String errorMessage = ErrorCodeEnum.NoHandlerFoundException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",NoHandlerFoundException.class.toString(), errorCode, errorMessage);
@@ -296,6 +310,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public RestResponse<?> request405(HttpRequestMethodNotSupportedException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.HttpRequestMethodNotSupportedException.getCode();
         String errorMessage = ErrorCodeEnum.HttpRequestMethodNotSupportedException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",HttpRequestMethodNotSupportedException.class.toString(), errorCode, errorMessage);
@@ -309,6 +324,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpMediaTypeNotSupportedException.class})
     public RestResponse<?> request415(HttpMediaTypeNotSupportedException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.HttpMediaTypeNotSupportedException.getCode();
         String errorMessage = ErrorCodeEnum.HttpMediaTypeNotSupportedException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",HttpRequestMethodNotSupportedException.class.toString(), errorCode, errorMessage);
@@ -323,6 +339,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpMediaTypeNotAcceptableException.class})
     public RestResponse<?> request406(HttpMediaTypeNotAcceptableException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.HttpMediaTypeNotAcceptableException.getCode();
         String errorMessage = ErrorCodeEnum.HttpMediaTypeNotAcceptableException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",HttpMediaTypeNotAcceptableException.class.toString(), errorCode, errorMessage);
@@ -336,6 +353,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({ConversionNotSupportedException.class, HttpMessageNotWritableException.class})
     public RestResponse<?> server500(RuntimeException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.ConversionNotSupportedException.getCode();
         String errorMessage = ErrorCodeEnum.ConversionNotSupportedException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",HttpMediaTypeNotAcceptableException.class.toString(), errorCode, errorMessage);
@@ -350,6 +368,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     public RestResponse<?> runtimeExceptionHandler(RuntimeException e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.RuntimeException.getCode();
         String errorMessage = ErrorCodeEnum.RuntimeException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
@@ -359,11 +378,12 @@ public class GlobalExceptionHandler {
     /**
      * 其他异常
      *
-     * @param e 异常对象 Exception
+     * @param e 异常对象 Exception,Throwable
      * @return 统一返回错误信息
      */
-    @ExceptionHandler(value = Exception.class)
-    public RestResponse<?> defaultErrorHandler(Exception e) {
+    @ExceptionHandler(value = {Exception.class, Throwable.class})
+    public RestResponse<?> defaultErrorHandler(Throwable e) {
+        e.printStackTrace();
         String errorCode = ErrorCodeEnum.OtherException.getCode();
         String errorMessage = ErrorCodeEnum.OtherException.getMsg() + ": " + e.getMessage();
         log.error("GlobalExceptionHandler -- ExceptionType:{} -- ErrorCode:{} -- ErrorMessage:{}",e.getClass().toString(), errorCode, errorMessage);
