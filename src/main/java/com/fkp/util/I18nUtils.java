@@ -6,6 +6,9 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class I18nUtils {
 
@@ -27,6 +30,15 @@ public class I18nUtils {
             langMessage = "i18n inner error!";
         }
         return langMessage;
+    }
+
+    public static String getMessageWithArgs(String key, String[] args){
+        List<String> argMessageList = new ArrayList<>();
+        for (String arg : args) {
+            String argMessage = messageSource.getMessage(arg, null, "", LocaleContextHolder.getLocale());
+            argMessageList.add(argMessage);
+        }
+        return messageSource.getMessage(key, argMessageList.toArray(), "unknow error", LocaleContextHolder.getLocale());
     }
 
 }

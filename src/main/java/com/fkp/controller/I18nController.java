@@ -26,6 +26,11 @@ public class I18nController {
         return RestResponse.success(user);
     }
 
+    @RequestMapping(value = "test2", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse<User> test2(){
+        return RestResponse.failWithArgs("222", new String[]{"key.name"});
+    }
+
     static class User{
         @NotBlank(message = "{user.name.notBlank}")
         private String name;

@@ -112,6 +112,14 @@ public class RestResponse<T> implements Serializable {
         return res;
     }
 
+    public static <T> RestResponse<T> failWithArgs(String code, String[] args){
+        RestResponse<T> res = new RestResponse<>();
+        res.setCode(code);
+        res.setMsg(I18nUtils.getMessageWithArgs(code, args));
+        res.setStatus(STATUS_FAIL);
+        return res;
+    }
+
     public String getCode() {
         return code;
     }
